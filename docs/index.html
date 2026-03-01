@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eloqa — Sprint Data Analysis (Fév 2026)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0f0f23;
+            color: #e2e2e2;
+            min-height: 100vh;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #6C5CE7 0%, #a29bfe 50%, #fd79a8 100%);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+        }
+        
+        .card {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+            border: 1px solid #2d2d44;
+            transition: transform 0.2s, border-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #6C5CE7;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .card-number {
+            background: #6C5CE7;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .card-number.fire {
+            background: linear-gradient(135deg, #e17055, #fd79a8);
+        }
+        
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .card p {
+            color: #a0a0b8;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .card .tag {
+            display: inline-block;
+            background: rgba(108, 92, 231, 0.2);
+            color: #a29bfe;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+        
+        .card .tag.warn {
+            background: rgba(253, 121, 168, 0.2);
+            color: #fd79a8;
+        }
+        
+        .card .tag.success {
+            background: rgba(0, 184, 148, 0.15);
+            color: #00b894;
+        }
+        
+        .card .metric {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6C5CE7;
+            margin: 8px 0;
+        }
+        
+        .card .metric.danger {
+            color: #fd79a8;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            font-size: 0.85rem;
+        }
+        
+        .summary-box {
+            background: #16213e;
+            border: 1px solid #6C5CE7;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .summary-box h2 {
+            color: #6C5CE7;
+            margin-bottom: 16px;
+        }
+        
+        .summary-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .summary-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid #2d2d44;
+            color: #c0c0d0;
+        }
+        
+        .summary-box li:last-child { border: none; }
+        
+        .summary-box li strong { color: white; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>📊 Sprint Data Analysis</h1>
+        <p>5 analyses + deep dive — Février 2026<br>
+        Par Quanty, Data Analyst Eloqa</p>
+    </div>
+    
+    <div class="container">
+        <div class="summary-box">
+            <h2>🎯 Finding principal</h2>
+            <ul>
+                <li><strong>89% des utilisateurs</strong> ont un taux de réussite &lt;20% → rétention D14 = 5.8%</li>
+                <li>Dès 20-40% de réussite → rétention D14 = <strong>85.3% (×15)</strong></li>
+                <li>Cause racine : 67% ne font qu'1 session, le système de mémorisation en nécessite ~8</li>
+                <li>Preuve : mémoriser ≥1 mot en S1 → <strong>81% reviennent</strong> (vs 31%)</li>
+            </ul>
+        </div>
+        
+        <a href="01_paywall_trial_conversion.html" class="card">
+            <div class="card-header">
+                <div class="card-number">1</div>
+                <h2>Conversion Paywall → Trial</h2>
+            </div>
+            <div class="metric">6.7%</div>
+            <p>Le paywall d'onboarding convertit à 6.7% — stable sur 6 mois. 65% ferment via la croix, mais 47% scrollent jusqu'en bas avant de partir. Le discount paywall convertit 3x moins (2.2%).</p>
+            <span class="tag">Paywall</span>
+            <span class="tag">Amplitude</span>
+            <span class="tag">RevenueCat</span>
+        </a>
+        
+        <a href="02_trial_cancellation.html" class="card">
+            <div class="card-header">
+                <div class="card-number">2</div>
+                <h2>Annulation de la période d'essai</h2>
+            </div>
+            <div class="metric danger">76.4% annulent</div>
+            <p>29% annulent dans l'heure (réflexe "cancel au cas où"). 61% ont déjà annulé au jour 3 — le trial de 7 jours est trop long pour le cycle de décision.</p>
+            <span class="tag warn">Annulation</span>
+            <span class="tag">RevenueCat</span>
+        </a>
+        
+        <a href="03_session_abandonment.html" class="card">
+            <div class="card-header">
+                <div class="card-number">3</div>
+                <h2>Abandon de session</h2>
+            </div>
+            <div class="metric" style="color: #00b894;">31.3% → en baisse</div>
+            <p>Tendance positive : 38.4% → 26.9% entre sept et fév (-30%). 74% des abandons = 0 carte découverte — problème de démarrage, pas de difficulté.</p>
+            <span class="tag success">En amélioration</span>
+            <span class="tag">ReviewSession</span>
+        </a>
+        
+        <a href="04_free_vs_paid_retention.html" class="card">
+            <div class="card-header">
+                <div class="card-number">4</div>
+                <h2>Rétention : Gratuit vs Payant</h2>
+            </div>
+            <div class="metric">D30 : 45.5% vs 9.9%</div>
+            <p>Les payants retiennent 4.6x mieux que les gratuits à D30. Le gap s'élargit avec le temps. Sans conversion avant D7, les gratuits sont perdus.</p>
+            <span class="tag">Rétention</span>
+            <span class="tag">PayEvent</span>
+        </a>
+        
+        <a href="05_success_rate_retention.html" class="card">
+            <div class="card-header">
+                <div class="card-number fire">🔥</div>
+                <h2>Taux de réussite vs Rétention — Finding principal</h2>
+            </div>
+            <div class="metric danger">×15 de rétention au seuil 20%</div>
+            <p>Le "aha moment" d'Eloqa : 89% des users sont sous 20% de réussite. Le cercle vicieux : il faut revenir pour mémoriser, mais il faut mémoriser pour avoir envie de revenir.</p>
+            <span class="tag warn">Critical</span>
+            <span class="tag">Deep Dive</span>
+            <span class="tag">Spaced Repetition</span>
+        </a>
+    </div>
+    
+    <div class="footer">
+        📊 Quanty — Data Analyst Eloqa<br>
+        Sources : DB Eloqa (PayEvent, ReviewSession, User) · Amplitude · PostHog · RevenueCat<br>
+        Sprint Février 2026
+    </div>
+</body>
+</html>
